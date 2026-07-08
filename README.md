@@ -6,7 +6,7 @@ built as an internship prototype at SafeX Solutions.
 ## Architecture
 
 ```
-User -> React frontend -> FastAPI backend -> sentence-embedding retriever -> Groq (Llama 3.3 70B) -> answer
+User -> React frontend -> FastAPI backend -> sentence-embedding retriever -> Groq  -> answer
 ```
 
 1. **Knowledge base** (`backend/knowledge_base.py`) - 13 factual chunks scraped
@@ -70,16 +70,16 @@ cd backend
 python evaluate_retriever.py
 ```
 
-Prints per-question retrieval results plus aggregate Hit Rate @1, Hit Rate
-@3, and MRR - useful for checking retrieval quality after editing the
+Prints per question retrieval results plus aggregate Hit Rate @1, Hit Rate
+@3, and MRR useful for checking retrieval quality after editing the
 knowledge base or swapping the embedding model.
 
 ## Why this design
 
 - **Grounded, not generic**: the system prompt explicitly forbids the model
-  from inventing services or prices - if the retriever finds nothing
+  from inventing services or prices  if the retriever finds nothing
   relevant, the bot points the user to `contact@safexsolutions.com` /
-  `+92 327 5781580` instead of guessing.
+  `phone number` instead of guessing.
 - **Semantic retrieval, still lightweight**: sentence embeddings give much
   better recall on paraphrased questions than pure keyword matching, while
   still avoiding the need for an external vector database at this scale
@@ -94,6 +94,6 @@ knowledge base or swapping the embedding model.
 
 ## Extending the knowledge base
 
-Add entries to `KNOWLEDGE_BASE` in `backend/knowledge_base.py` — each is a
+Add entries to `KNOWLEDGE_BASE` in `backend/knowledge_base.py` each is a
 dict with `id`, `topic`, and `text`. No retraining needed; TF-IDF re-fits at
 startup.
