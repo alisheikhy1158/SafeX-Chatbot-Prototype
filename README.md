@@ -6,7 +6,7 @@ built as an internship prototype at SafeX Solutions.
 ## Architecture
 
 ```
-User -> React frontend -> FastAPI backend -> sentence-embedding retriever -> Groq (Llama 3.3 70B) -> answer
+User -> React frontend -> FastAPI backend -> sentence-embedding retriever -> Groq  -> answer
 ```
 
 1. **Knowledge base** (`backend/knowledge_base.py`) - 13 factual chunks scraped
