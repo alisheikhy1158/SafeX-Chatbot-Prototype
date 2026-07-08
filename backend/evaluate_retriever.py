@@ -15,11 +15,6 @@ Run:
 
 from retriever import KnowledgeRetriever
 
-# Each test case pairs a realistic user question with the knowledge-base
-# chunk id it SHOULD retrieve (see knowledge_base.py for ids). Written to
-# deliberately include paraphrasing / indirect wording, not just keyword
-# matches, since that's exactly what embeddings should handle better than
-# TF-IDF.
 TEST_CASES = [
     {"question": "How can I get in touch with your team?", "expected_id": "contact"},
     {"question": "What's your phone number?", "expected_id": "contact"},

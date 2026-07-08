@@ -1,16 +1,5 @@
 """
-SafeX Solutions FAQ Chatbot — FastAPI backend.
-
-Architecture (small RAG pipeline):
-  1. User question comes in via POST /api/chat
-  2. Sentence-embedding retriever (all-MiniLM-L6-v2) pulls the most
-     relevant knowledge-base chunks by semantic similarity
-  3. Retrieved chunks + question are sent to Groq (Llama 3.3 70B)
-     with a system prompt instructing it to answer ONLY from context
-  4. Response (with the chunks that were used) is returned to the client
-
-Run:
-  export GROQ_API_KEY=gsk_...
+Run
   uvicorn main:app --reload --port 8000
 """
 
