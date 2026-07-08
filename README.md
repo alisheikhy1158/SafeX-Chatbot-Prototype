@@ -70,14 +70,14 @@ cd backend
 python evaluate_retriever.py
 ```
 
-Prints per-question retrieval results plus aggregate Hit Rate @1, Hit Rate
-@3, and MRR - useful for checking retrieval quality after editing the
+Prints per question retrieval results plus aggregate Hit Rate @1, Hit Rate
+@3, and MRR useful for checking retrieval quality after editing the
 knowledge base or swapping the embedding model.
 
 ## Why this design
 
 - **Grounded, not generic**: the system prompt explicitly forbids the model
-  from inventing services or prices - if the retriever finds nothing
+  from inventing services or prices  if the retriever finds nothing
   relevant, the bot points the user to `contact@safexsolutions.com` /
   `phone number` instead of guessing.
 - **Semantic retrieval, still lightweight**: sentence embeddings give much
@@ -94,6 +94,6 @@ knowledge base or swapping the embedding model.
 
 ## Extending the knowledge base
 
-Add entries to `KNOWLEDGE_BASE` in `backend/knowledge_base.py` — each is a
+Add entries to `KNOWLEDGE_BASE` in `backend/knowledge_base.py` each is a
 dict with `id`, `topic`, and `text`. No retraining needed; TF-IDF re-fits at
 startup.
