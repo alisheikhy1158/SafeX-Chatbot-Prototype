@@ -79,7 +79,7 @@ knowledge base or swapping the embedding model.
 - **Grounded, not generic**: the system prompt explicitly forbids the model
   from inventing services or prices - if the retriever finds nothing
   relevant, the bot points the user to `contact@safexsolutions.com` /
-  `+92 327 5781580` instead of guessing.
+  `phone number` instead of guessing.
 - **Semantic retrieval, still lightweight**: sentence embeddings give much
   better recall on paraphrased questions than pure keyword matching, while
   still avoiding the need for an external vector database at this scale
